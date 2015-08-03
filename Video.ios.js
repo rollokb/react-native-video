@@ -81,20 +81,22 @@ var Video = React.createClass({
     }
 
     var nativeProps = merge(this.props, {
-      style,
       resizeMode: resizeMode,
-      src: {
-        uri: uri,
-        isNetwork,
-        isAsset,
-        type: source.type || 'mp4'
-      },
       onVideoLoad: this._onLoad,
       onVideoProgress: this._onProgress,
       onVideoEnd: this._onEnd,
     });
 
-    return <RCTVideo ref={VIDEO_REF} {... nativeProps} />;
+    var src = {
+        uri: uri,
+        isNetwork,
+        isAsset,
+        type: source.type || 'mp4'
+    };
+
+    return (
+          <RCTVideo ref={VIDEO_REF} {... nativeProps} src={src} style={style}/>
+    );
   },
 });
 
