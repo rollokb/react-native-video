@@ -102,6 +102,7 @@ var RCTVideo = requireNativeComponent('RCTVideo', Video);
 
 var styles = StyleSheet.create({
   base: {
+    flex: 1,
     overflow: 'hidden',
   },
 });
